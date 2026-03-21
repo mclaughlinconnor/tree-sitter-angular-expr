@@ -15,7 +15,7 @@ const PREC = {
 };
 
 module.exports = grammar({
-  name: 'angular',
+  name: 'angular_expr',
 
   externals: ($) => [
     $._interpolation_start,
