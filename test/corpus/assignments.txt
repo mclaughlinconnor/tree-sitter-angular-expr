@@ -2,238 +2,223 @@
 Binary assignment - +=
 ========================
 
-{{ 10 += 3 }}
+10 += 3
 
 ---
 
-(document
- (interpolation
+(node
   (binary_expression
     (expression
-     (number))
+      (number))
     (expression
-     (number)))))
+      (number))))
 
 ========================
 Binary assignment - -=
 ========================
 
-{{ 10 -= 3 }}
+10 -= 3
 
 ---
 
-(document
- (interpolation
+(node
   (binary_expression
     (expression
-     (number))
+      (number))
     (expression
-     (number)))))
+      (number))))
 
 ========================
 Binary assignment - *=
 ========================
 
-{{ 10 *= 3 }}
+10 *= 3
 
 ---
 
-(document
- (interpolation
+(node
   (binary_expression
     (expression
-     (number))
+      (number))
     (expression
-     (number)))))
+      (number))))
 
 ========================
 Binary assignment - /=
 ========================
 
-{{ 10 += 3 }}
+10 += 3
 
 ---
 
-(document
- (interpolation
+(node
   (binary_expression
     (expression
-     (number))
+      (number))
     (expression
-     (number)))))
+      (number))))
 
 ========================
 Binary assignment - %=
 ========================
 
-{{ 10 %= 3 }}
+10 %= 3
 
 ---
 
-(document
- (interpolation
+(node
   (binary_expression
     (expression
-     (number))
+      (number))
     (expression
-     (number)))))
+      (number))))
 
 ========================
 Binary assignment - &=
 ========================
 
-{{ 10 &= 3 }}
+10 &= 3
 
 ---
 
-(document
- (interpolation
+(node
   (binary_expression
     (expression
-     (number))
+      (number))
     (expression
-     (number)))))
+      (number))))
 
 ========================
 Binary assignment - ^=
 ========================
 
-{{ 10 ^= 3 }}
+10 ^= 3
 
 ---
 
-(document
- (interpolation
+(node
   (binary_expression
     (expression
-     (number))
+      (number))
     (expression
-     (number)))))
+      (number))))
 
 ========================
 Binary assignment - |=
 ========================
 
-{{ 10 |= 3 }}
+10 |= 3
 
 ---
 
-(document
- (interpolation
+(node
   (binary_expression
     (expression
-     (number))
+      (number))
     (expression
-     (number)))))
+      (number))))
 
 ========================
 Binary assignment - **=
 ========================
 
-{{ 10 **= 3 }}
+10 **= 3
 
 ---
 
-(document
- (interpolation
+(node
   (binary_expression
     (expression
-     (number))
+      (number))
     (expression
-     (number)))))
+      (number))))
 
 ========================
 Binary assignment - <<=
 ========================
 
-{{ 10 <<= 3 }}
+10 <<= 3
 
 ---
 
-(document
- (interpolation
+(node
   (binary_expression
     (expression
-     (number))
+      (number))
     (expression
-     (number)))))
+      (number))))
 
 ========================
 Binary assignment - >>=
 ========================
 
-{{ 10 >>= 3 }}
+10 >>= 3
 
 ---
 
-(document
- (interpolation
+(node
   (binary_expression
     (expression
-     (number))
+      (number))
     (expression
-     (number)))))
+      (number))))
 
 ========================
 Binary assignment - ||=
 ========================
 
-{{ 10 ||= 3 }}
+10 ||= 3
 
 ---
 
-(document
- (interpolation
+(node
   (binary_expression
     (expression
-     (number))
+      (number))
     (expression
-     (number)))))
+      (number))))
 
 ========================
 Binary assignment - &&=
 ========================
 
-{{ 10 &&= 3 }}
+10 &&= 3
 
 ---
 
-(document
- (interpolation
+(node
   (binary_expression
     (expression
-     (number))
+      (number))
     (expression
-     (number)))))
+      (number))))
 
 ========================
 Binary assignment - ??=
 ========================
 
-{{ 10 ??= 3 }}
+10 ??= 3
 
 ---
 
-(document
- (interpolation
+(node
   (binary_expression
     (expression
-     (number))
+      (number))
     (expression
-     (number)))))
+      (number))))
 
 ========================
 Binary assignment - >>>=
 ========================
 
-{{ 10 >>>= 3 }}
+10 >>>= 3
 
 ---
 
-(document
- (interpolation
+(node
   (binary_expression
     (expression
-     (number))
+      (number))
     (expression
-     (number)))))
+      (number))))

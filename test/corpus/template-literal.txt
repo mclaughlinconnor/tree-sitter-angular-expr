@@ -2,166 +2,110 @@
 Untagged template literal
 =========================
 
-<div [class]="`w-${width()}`">
-  Content
-</div>
+`w-${width()}`
 
 ---
 
-(document
-  (element
-    (start_tag
-      (tag_name)
-      (attribute
-        (property_binding
-          (class_binding
-            (identifier))
-          (expression
-            (template_string
-              (template_chars)
-              (template_substitution
-                (expression
-                  (call_expression
-                    (identifier)))))))))
-    (text)
-    (end_tag
-      (tag_name))))
+(node
+  (expression
+    (template_string
+      (template_chars)
+      (template_substitution
+        (expression
+          (call_expression
+            (identifier)))))))
 
 =========================
 Untagged template literal - only substitution
 =========================
 
-<div [class]="`${width()}`">
-  Content
-</div>
+`${width()}`
 
 ---
 
-(document
-  (element
-    (start_tag
-      (tag_name)
-      (attribute
-        (property_binding
-          (class_binding
-            (identifier))
-          (expression
-            (template_string
-              (template_substitution
-                (expression
-                  (call_expression
-                    (identifier)))))))))
-    (text)
-    (end_tag
-      (tag_name))))
+(node
+  (expression
+    (template_string
+      (template_substitution
+        (expression
+          (call_expression
+            (identifier)))))))
 
 =========================
 Untagged template literal - multiple
 =========================
 
-<div [class]="`col-${width()} bg-${color()}`">
-  Content
-</div>
+`col-${width()} bg-${color()}`
 
 ---
 
-(document
-  (element
-    (start_tag
-      (tag_name)
-      (attribute
-        (property_binding
-          (class_binding
-            (identifier))
-          (expression
-            (template_string
-              (template_chars)
-              (template_substitution
-                (expression
-                  (call_expression
-                    (identifier))))
-              (template_chars)
-              (template_substitution
-                (expression
-                  (call_expression
-                    (identifier)))))))))
-    (text)
-    (end_tag
-      (tag_name))))
+(node
+  (expression
+    (template_string
+      (template_chars)
+      (template_substitution
+        (expression
+          (call_expression
+            (identifier))))
+      (template_chars)
+      (template_substitution
+        (expression
+          (call_expression
+            (identifier)))))))
 
 =========================
 Untagged template literal - complex
 =========================
 
-<div [class]="`col-${width | async}`">
-  Content
-</div>
+`col-${width | async}`
 
 ---
 
-(document
-  (element
-    (start_tag
-      (tag_name)
-      (attribute
-        (property_binding
-          (class_binding
-            (identifier))
-          (expression
-            (template_string
-              (template_chars)
-              (template_substitution
-                (expression
-                  (identifier)
-                  (pipe_sequence
-                    (pipe_operator)
-                    (pipe_call
-                      (identifier))))))))))
-    (text)
-    (end_tag
-      (tag_name))))
+(node
+  (expression
+    (template_string
+      (template_chars)
+      (template_substitution
+        (expression
+          (identifier)
+          (pipe_sequence
+            (pipe_operator)
+            (pipe_call
+              (identifier))))))))
 
 =========================
 Untagged template literal - interpolation
 =========================
 
-<span>{{ `string with a value: ${prop()}` }}</span>
+`string with a value: ${prop()}`
 
 ---
 
-(document
-  (element
-    (start_tag
-      (tag_name))
-    (interpolation
-      (expression
-        (template_string
-          (template_chars)
-          (template_substitution
-            (expression
-              (call_expression
-                (identifier)))))))
-    (end_tag
-      (tag_name))))
+(node
+  (expression
+    (template_string
+      (template_chars)
+      (template_substitution
+        (expression
+          (call_expression
+            (identifier)))))))
 
 ========================
 Untagged template literal - interpolation with pipe
 ========================
 
-{{ `Hello, ${name}` | uperrcase }}
+`Hello, ${name}` | uperrcase
 
 ---
 
-(document
-  (interpolation
-    (expression
-        (template_string
-        (template_chars)
-        (template_substitution
-          (expression
-            (identifier))))
-      (pipe_sequence
-        (pipe_operator)
-        (pipe_call
-          (identifier))))))
-
+(node
+  (expression
+    (template_string
+      (template_chars)
+      (template_substitution
+        (expression
+          (identifier))))
+    (pipe_sequence
+      (pipe_operator)
+      (pipe_call
+        (identifier)))))

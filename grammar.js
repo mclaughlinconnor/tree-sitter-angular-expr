@@ -14,32 +14,25 @@ const PREC = {
   ALIAS: 2,
 };
 
-module.exports = grammar(HTML, {
+module.exports = grammar({
   name: 'angular',
 
-  externals: ($, original) =>
-    original.concat([
-      $._interpolation_start,
-      $._interpolation_end,
-      $._control_flow_start,
-    ]),
+  externals: ($) => [
+    $._interpolation_start,
+    $._interpolation_end,
+    $._control_flow_start,
+  ],
 
   rules: {
     // ---------- Root ---------
-    _node: ($, original) =>
-      choice(
-        prec(1, $.icu_expression),
-        prec(1, $.interpolation),
-        prec(1, $._any_statement),
-        original,
-      ),
+    node: ($) => $._any_expression,
 
     // ---------- Overrides ----------
     attribute_name: (_) => /[^<>\*.\[\]\(\)"'=\s]+/,
     text: (_) => /[^<>@{}&\s]([^<>@{}&]*[^<>@{}&\s])?/,
 
     // ----------- Statement block --------
-    statement_block: ($) => prec.right(seq('{', repeat($._node), '}')),
+    statement_block: ($) => prec.right(seq('{', repeat($.node), '}')),
 
     // ---------- Statements ----------
     _any_statement: ($) =>
@@ -329,7 +322,7 @@ module.exports = grammar(HTML, {
 
     icu_clause: () => choice('plural', 'select'),
 
-    icu_case: ($) => seq($.icu_category, '{', repeat1($._node), '}'),
+    icu_case: ($) => seq($.icu_category, '{', repeat1($.node), '}'),
 
     icu_category: () => /[^{}]+/i,
 
@@ -452,7 +445,7 @@ module.exports = grammar(HTML, {
     _normal_attribute: ($) =>
       seq(
         $.attribute_name,
-        optional(seq('=', choice($.attribute_value, $.quoted_attribute_value))),
+        optional(seq('=', choice(HTML.grammar.rules.attribute_value, HTML.grammar.rules.quoted_attribute_value))),
       ),
 
     // ---------- Expressions ---------
