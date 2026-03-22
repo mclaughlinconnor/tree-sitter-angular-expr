@@ -650,6 +650,7 @@ module.exports = grammar({
         PREC.CALL,
         seq(
           field('object', $._primitive),
+          optional(choice('.', '?.', '!.')),
           '[',
           field('property', $._any_expression),
           ']',

@@ -1,0 +1,14 @@
+========================
+Bracket expression optional chaining
+========================
+
+a?.['key']
+
+---
+
+(node
+  (expression
+    (bracket_expression
+      (identifier)
+      (expression
+        (string)))))
