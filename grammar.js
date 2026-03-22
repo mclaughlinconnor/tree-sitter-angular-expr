@@ -260,6 +260,7 @@ module.exports = grammar({
       choice(
         $.binary_expression,
         $.unary_expression,
+        $.assignment_expression,
         $.expression,
         $.ternary_expression,
         $.nullish_coalescing_expression,
@@ -496,10 +497,13 @@ module.exports = grammar({
 
     // Nullish coalescing expression
     nullish_coalescing_expression: ($) =>
-      seq(
-        field('condition', $._any_expression),
-        alias('??', $.coalescing_operator),
-        field('default', $._primitive),
+      prec.left(
+        3,
+        seq(
+          field('condition', $._any_expression),
+          alias('??', $.coalescing_operator),
+          field('default', $._primitive),
+        ),
       ),
 
     // Conditional expression

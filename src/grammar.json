@@ -1167,6 +1167,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "assignment_expression"
+        },
+        {
+          "type": "SYMBOL",
           "name": "expression"
         },
         {
@@ -2521,34 +2525,38 @@
       ]
     },
     "nullish_coalescing_expression": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "FIELD",
-          "name": "condition",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_any_expression"
-          }
-        },
-        {
-          "type": "ALIAS",
-          "content": {
-            "type": "STRING",
-            "value": "??"
+      "type": "PREC_LEFT",
+      "value": 3,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "condition",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_any_expression"
+            }
           },
-          "named": true,
-          "value": "coalescing_operator"
-        },
-        {
-          "type": "FIELD",
-          "name": "default",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_primitive"
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "STRING",
+              "value": "??"
+            },
+            "named": true,
+            "value": "coalescing_operator"
+          },
+          {
+            "type": "FIELD",
+            "name": "default",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_primitive"
+            }
           }
-        }
-      ]
+        ]
+      }
     },
     "conditional_expression": {
       "type": "PREC_RIGHT",

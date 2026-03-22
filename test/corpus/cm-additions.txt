@@ -48,3 +48,75 @@ a!(one, two, three)
         (identifier)
         (identifier)
         (identifier)))))
+
+========================
+Basic assignment expression
+========================
+
+a = 7
+
+---
+
+(node
+  (assignment_expression
+    (identifier)
+    (expression
+      (number))))
+
+========================
+Chaining assignment expression
+========================
+
+(a.b.c?.d = 7)
+
+---
+
+(node
+  (expression
+    (group
+      (assignment_expression
+        (member_expression
+          (member_expression
+            (member_expression
+              (identifier)
+              (identifier))
+            (identifier))
+          (identifier))
+        (expression
+          (number))))))
+
+========================
+Chaining assignment expression
+========================
+
+a = b = c
+
+---
+
+(node
+  (assignment_expression
+    (identifier)
+    (assignment_expression
+      (identifier)
+      (expression
+        (identifier)))))
+
+========================
+Chaining assignment expression
+========================
+
+a = b ? c : d
+
+---
+
+(node
+  (assignment_expression
+    (identifier)
+    (ternary_expression
+      (expression
+        (identifier))
+      (ternary_operator)
+      (identifier)
+      (ternary_operator)
+      (expression
+        (identifier)))))
