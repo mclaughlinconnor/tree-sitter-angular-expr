@@ -304,7 +304,7 @@ module.exports = grammar({
 
     assignment_expression: ($) =>
       seq(
-        field('name', choice($.member_expression, $.identifier)),
+        field('name', choice($.member_expression, $.identifier, $.bracket_expression, $.call_expression)),
         '=',
         field('value', $._any_expression),
       ),

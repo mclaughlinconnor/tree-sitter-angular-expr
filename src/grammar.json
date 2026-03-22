@@ -1335,6 +1335,14 @@
               {
                 "type": "SYMBOL",
                 "name": "identifier"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "bracket_expression"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "call_expression"
               }
             ]
           }
