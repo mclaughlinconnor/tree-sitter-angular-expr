@@ -12,3 +12,39 @@ a?.['key']
       (identifier)
       (expression
         (string)))))
+
+========================
+Call expression optional chaining
+========================
+
+one?.two?.(one, two, three)
+
+---
+
+(node
+  (expression
+    (call_expression
+      function: (member_expression
+        object: (identifier)
+        property: (identifier))
+      arguments: (arguments
+        (identifier)
+        (identifier)
+        (identifier)))))
+
+========================
+Call expression nullish coalescing
+========================
+
+a!(one, two, three)
+
+---
+
+(node
+  (expression
+    (call_expression
+      (identifier)
+      (arguments
+        (identifier)
+        (identifier)
+        (identifier)))))

@@ -144,17 +144,17 @@ String concat with pipes
 
 (node
   (binary_expression
-    (expression
+    left: (expression
       (string))
-    (expression
-      (member_expression
-        (identifier)
-        (call_expression
-          (identifier)))
-      (pipe_sequence
+    right: (expression
+      (call_expression
+        function: (member_expression
+          object: (identifier)
+          property: (identifier)))
+      pipes: (pipe_sequence
         (pipe_operator)
         (pipe_call
-          (identifier))))))
+          name: (identifier))))))
 
 ========================
 Exponentiation

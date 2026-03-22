@@ -535,7 +535,7 @@ module.exports = grammar({
       choice(
         $.object,
         $.array,
-        $.identifier,
+        prec(PREC.CALL, $.identifier),
         $.string,
         $.template_string,
         $.number,
@@ -612,7 +612,8 @@ module.exports = grammar({
       prec.left(
         PREC.CALL,
         seq(
-          field('function', $.identifier),
+          field('function', $._primitive),
+          optional(choice('?.', '!')),
           '(',
           optional(field('arguments', $.arguments)),
           ')',
@@ -628,15 +629,17 @@ module.exports = grammar({
 
     // Member expression
     member_expression: ($) =>
-      seq(
-        field('object', $._primitive),
-        choice(
-          seq(
-            choice('.', '?.', '!.'),
-            choice(
-              field('property', $.identifier),
-              field('call', $.call_expression),
-              field('unit', $.style_unit),
+      prec.left(
+        PREC.CALL,
+        seq(
+          field('object', $._primitive),
+          choice(
+            seq(
+              choice('.', '?.', '!.'),
+              choice(
+                field('property', $.identifier),
+                field('unit', $.style_unit),
+              ),
             ),
           ),
         ),
