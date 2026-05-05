@@ -2594,22 +2594,26 @@
             }
           },
           {
-            "type": "ALIAS",
+            "type": "FIELD",
+            "name": "operator",
             "content": {
-              "type": "CHOICE",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "||"
-                },
-                {
-                  "type": "STRING",
-                  "value": "&&"
-                }
-              ]
-            },
-            "named": true,
-            "value": "conditional_operator"
+              "type": "ALIAS",
+              "content": {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "||"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "&&"
+                  }
+                ]
+              },
+              "named": true,
+              "value": "conditional_operator"
+            }
           },
           {
             "type": "FIELD",

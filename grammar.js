@@ -512,7 +512,7 @@ module.exports = grammar({
         PREC.CALL,
         seq(
           field('left', choice($._primitive, $.unary_expression, $.binary_expression)),
-          alias(choice('||', '&&'), $.conditional_operator),
+          field('operator', alias(choice('||', '&&'), $.conditional_operator)),
           field(
             'right',
             choice(
